@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # Frontend Service
+  frontend:
+    build: 
+      context: ./task-ui
+      dockerfile: Dockerfile
+    container_name: task-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    networks:
+      - task-network
+
+  # Backend Service  
+  backend:
+    build:
+      context: ./TaskTool
+      dockerfile: Dockerfile
+    container_name: task-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/taskDB
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - task-network
+
+  # Database Service
+  database:
+    image: postgres:16
+    container_name: task-database
+    environment:
+      POSTGRES_DB: taskDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - task_pgdata:/var/lib/postgresql/data
+    networks:
+      - task-network
+
+volumes:
+  task_pgdata:
+
+networks:
+  task-network:
+    driver: bridge

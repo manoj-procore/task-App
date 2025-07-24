@@ -1,0 +1,10 @@
+INSERT INTO task_items (number, title, status, assignee, created_at, deleted_at, description, description_rich_text, due_date, updated_at, priority) VALUES
+                                                                                                                                                         ('T-001', 'Example task', 'initiated', 'alice', '2025-01-08 04:05:06+00', NULL, 'An example task', '<b>Rich text description</b>', '2025-01-10 12:00:00+00', '2025-01-08 04:05:06+00', 'normal'),
+                                                                                                                                                         ('T-002', 'Design API', 'in_progress', 'bob', '2025-01-09 09:00:00+00', NULL, 'Design the REST API endpoints', '<i>API details</i>', '2025-01-15 18:00:00+00', '2025-01-09 09:00:00+00', 'high'),
+                                                                                                                                                         ('T-003', 'Write docs', 'pending', 'carol', '2025-01-10 10:30:00+00', NULL, 'Write documentation for the project', '<u>Documentation</u>', NULL, '2025-01-10 10:30:00+00', 'medium');
+
+INSERT INTO task_comments (task_item_id, created_at, updated_at, user_name, comment) VALUES
+                                                                                         (1, '2025-01-08 05:00:00+00', '2025-01-08 05:00:00+00', 'alice', 'Started working on this task.'),
+                                                                                         (1, '2025-01-08 06:00:00+00', '2025-01-08 06:00:00+00', 'bob', 'Reviewed the initial implementation.'),
+                                                                                         (2, '2025-01-09 10:00:00+00', '2025-01-09 10:00:00+00', 'carol', 'API design looks good.'),
+                                                                                         (3, '2025-01-10 11:00:00+00', '2025-01-10 11:00:00+00', 'alice', 'Documentation draft created.');
