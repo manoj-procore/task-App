@@ -24,7 +24,7 @@ const ViewTaskModal: React.FC<ViewTaskModalProps> = ({ task, isOpen, onClose, on
       case 'Initiated': return '#2196f3';
       case 'In Progress': return '#ff9800';
       case 'Completed': return '#4caf50';
-      case 'Security': return '#f44336';
+      case 'Pending': return '#f44336';
       default: return '#666';
     }
   };

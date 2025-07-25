@@ -377,7 +377,7 @@ const CreateTaskForm: React.FC<CreateTaskFormProps> = ({ isOpen, onClose, onTask
                  <option value="Initiated">Initiated</option>
                  <option value="In Progress">In Progress</option>
                  <option value="Completed">Completed</option>
-                 <option value="Security">Security</option>
+                 <option value="Pending">Pending</option>
                </select>
             </div>
 

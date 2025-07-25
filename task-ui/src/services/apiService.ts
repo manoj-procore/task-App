@@ -9,7 +9,7 @@ export interface Task {
   description: string;
   assignee: string;
   dueDate: string;
-  status: 'Initiated' | 'In Progress' | 'Completed' | 'Security';
+  status: 'Initiated' | 'In Progress' | 'Completed' | 'Pending' ;
   category: 'General' | 'Development' | 'Design' | 'Testing' | 'Documentation' | 'Bug Fix';
   priority: 'Low' | 'Medium' | 'High' | 'Critical';
 }
